@@ -1,0 +1,360 @@
+{
+    "events": [
+        {
+            "name": "дурак онлайн",
+            "points": 1,
+            "min_players_day": 5,
+            "min_players_night": 4,
+            "type": "event"
+        },
+        {
+            "name": "dota 2 5х5",
+            "points": 0,
+            "min_players_day": 0,
+            "min_players_night": 0,
+            "type": "close"
+        },
+        {
+            "name": "мафия",
+            "points": 5,
+            "min_players_day": 10,
+            "min_players_night": 10,
+            "type": "event"
+        },
+        {
+            "name": "кто я?",
+            "points": 3,
+            "min_players_day": 6,
+            "min_players_night": 4,
+            "type": "event"
+        },
+        {
+            "name": "genshin impact",
+            "points": 0,
+            "min_players_day": 0,
+            "min_players_night": 0,
+            "type": "event"
+        },
+        {
+            "name": "cs:go 2x2",
+            "points": 0,
+            "min_players_day": 0,
+            "min_players_night": 0,
+            "type": "close"
+        },
+        {
+            "name": "угадай мелодию",
+            "points": 1,
+            "min_players_day": 5,
+            "min_players_night": 4,
+            "type": "event"
+        },
+        {
+            "name": "соло",
+            "points": 5,
+            "min_players_day": 5,
+            "min_players_night": 3,
+            "type": "event"
+        },
+        {
+            "name": "крокодил",
+            "points": 2,
+            "min_players_day": 6,
+            "min_players_night": 5,
+            "type": "event"
+        },
+        {
+            "name": "minecraft survival",
+            "points": 0,
+            "min_players_day": 0,
+            "min_players_night": 0,
+            "type": "event"
+        },
+        {
+            "name": "коднеймс",
+            "points": 2,
+            "min_players_day": 6,
+            "min_players_night": 6,
+            "type": "event"
+        },
+        {
+            "name": "монополия",
+            "points": 3,
+            "min_players_day": 3,
+            "min_players_night": 3,
+            "type": "event"
+        },
+        {
+            "name": "поговорим о",
+            "points": 1,
+            "min_players_day": 3,
+            "min_players_night": 3,
+            "type": "event"
+        },
+        {
+            "name": "jackbox",
+            "points": 3,
+            "min_players_day": 6,
+            "min_players_night": 4,
+            "type": "event"
+        },
+        {
+            "name": "cs:go 5x5",
+            "points": 0,
+            "min_players_day": 0,
+            "min_players_night": 0,
+            "type": "close"
+        },
+        {
+            "name": "gartic phone",
+            "points": 2,
+            "min_players_day": 7,
+            "min_players_night": 5,
+            "type": "event"
+        },
+        {
+            "name": "brawl stars 3x3",
+            "points": 0,
+            "min_players_day": 0,
+            "min_players_night": 0,
+            "type": "close"
+        },
+        {
+            "name": "своя игра",
+            "points": 5,
+            "min_players_day": 6,
+            "min_players_night": 4,
+            "type": "event"
+        },
+        {
+            "name": "токайдо",
+            "points": 3,
+            "min_players_day": 5,
+            "min_players_night": 4,
+            "type": "event"
+        },
+        {
+            "name": "правда или действие",
+            "points": 2,
+            "min_players_day": 6,
+            "min_players_night": 6,
+            "type": "event"
+        },
+        {
+            "name": "секретный гитлер",
+            "points": 2,
+            "min_players_day": 8,
+            "min_players_night": 6,
+            "type": "event"
+        },
+        {
+            "name": "dead by daylight",
+            "points": 0,
+            "min_players_day": 0,
+            "min_players_night": 0,
+            "type": "event"
+        },
+        {
+            "name": "загадки",
+            "points": 1,
+            "min_players_day": 3,
+            "min_players_night": 3,
+            "type": "event"
+        },
+        {
+            "name": "смотрим вместе",
+            "points": 1,
+            "min_players_day": 3,
+            "min_players_night": 3,
+            "type": "event"
+        },
+        {
+            "name": "шляпа",
+            "points": 2,
+            "min_players_day": 6,
+            "min_players_night": 4,
+            "type": "event"
+        },
+        {
+            "name": "dota 2 pub",
+            "points": 0,
+            "min_players_day": 0,
+            "min_players_night": 0,
+            "type": "close"
+        }
+    ],
+    "eventers": [
+        {
+            "discord_id": 884120863992078346,
+            "discord_tag": "@! шиш"
+        },
+        {
+            "discord_id": 703685640860205117,
+            "discord_tag": "@tú me matas"
+        },
+        {
+            "discord_id": 784664087824302111,
+            "discord_tag": "@Вантуз"
+        },
+        {
+            "discord_id": 393829114152353793,
+            "discord_tag": "@кодеїнослав"
+        },
+        {
+            "discord_id": 370127455110823946,
+            "discord_tag": "@Yasuo"
+        },
+        {
+            "discord_id": 731418497976107009,
+            "discord_tag": "@♡mr karasik♡"
+        },
+        {
+            "discord_id": 604669565468672002,
+            "discord_tag": "@!MrDInos"
+        },
+        {
+            "discord_id": 650352573634707467,
+            "discord_tag": "@ᴰᴹᴺ預言者第号\"'4"
+        },
+        {
+            "discord_id": 504665587956318218,
+            "discord_tag": "@Twores/Aether"
+        },
+        {
+            "discord_id": 331524433602936832,
+            "discord_tag": "@жду чего то"
+        },
+        {
+            "discord_id": 807124217850101801,
+            "discord_tag": "@LASLLFLDSFL;SFSDKL"
+        },
+        {
+            "discord_id": 123,
+            "discord_tag": "@ᴰᴹᴺ預言者第号\"'4"
+        },
+        {
+            "discord_id": 640797508649615380,
+            "discord_tag": "@8 дней до скучного события"
+        },
+        {
+            "discord_id": 833197758075895822,
+            "discord_tag": "@валына"
+        },
+        {
+            "discord_id": 565949227461640192,
+            "discord_tag": "@KABAN4IK"
+        },
+        {
+            "discord_id": 413334076490252288,
+            "discord_tag": "@! afka"
+        },
+        {
+            "discord_id": 931928150382878721,
+            "discord_tag": "@Уральский парень"
+        },
+        {
+            "discord_id": 435041093634097152,
+            "discord_tag": "@касивчик"
+        },
+        {
+            "discord_id": 425342219042422794,
+            "discord_tag": "@миаями кензоу"
+        },
+        {
+            "discord_id": 749565912033525790,
+            "discord_tag": "@Дед инсайд"
+        },
+        {
+            "discord_id": 582418146821013515,
+            "discord_tag": "@Kosatik"
+        },
+        {
+            "discord_id": 1234,
+            "discord_tag": "@Дед инсайд"
+        },
+        {
+            "discord_id": 12345,
+            "discord_tag": "@預言者第号4\"'𝔣𝔱𝔲"
+        },
+        {
+            "discord_id": 752233200016949360,
+            "discord_tag": "@Suger_Vanilla228"
+        },
+        {
+            "discord_id": 295183837707632640,
+            "discord_tag": "@! . step шиномонтаж"
+        },
+        {
+            "discord_id": 695666446000324688,
+            "discord_tag": "@Любимка Volkov"
+        },
+        {
+            "discord_id": 295127995725643778,
+            "discord_tag": "@! Эмин Тюльпан !"
+        },
+        {
+            "discord_id": 723476228702732289,
+            "discord_tag": "@Яроslave"
+        },
+        {
+            "discord_id": 123456,
+            "discord_tag": "@жду чего то"
+        },
+        {
+            "discord_id": 1234567,
+            "discord_tag": "<@215091750421790720>"
+        },
+        {
+            "discord_id": 12345678,
+            "discord_tag": "@Живу на урале"
+        },
+        {
+            "discord_id": 588364153194807297,
+            "discord_tag": "@я люблю step'a, день 1 мяу"
+        },
+        {
+            "discord_id": 524911098038714378,
+            "discord_tag": "@VIXREV"
+        },
+        {
+            "discord_id": 427480295223328770,
+            "discord_tag": "@NOSOK"
+        },
+        {
+            "discord_id": 563427937714569226,
+            "discord_tag": "@! подавай заявку на клозера"
+        },
+        {
+            "discord_id": 997898750565548033,
+            "discord_tag": "@! фанатка тэдэши, хирики, шиша"
+        },
+        {
+            "discord_id": 407205739744985097,
+            "discord_tag": "@psixose"
+        },
+        {
+            "discord_id": 976178411695403018,
+            "discord_tag": "@тильт(1000x)"
+        },
+        {
+            "discord_id": 968482335974629376,
+            "discord_tag": "@die4u"
+        },
+        {
+            "discord_id": 660812226264825886,
+            "discord_tag": "@Nymphodelic"
+        },
+        {
+            "discord_id": 342646065826365440,
+            "discord_tag": "@pororo"
+        },
+        {
+            "discord_id": 561163692146688038,
+            "discord_tag": "@10ф брат Егора228777 ф +30"
+        },
+        {
+            "discord_id": 503605988591534123,
+            "discord_tag": "@лева морфлинг"
+        }
+    ]
+}
