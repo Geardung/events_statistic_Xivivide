@@ -136,7 +136,9 @@ if  __name__ == "__main__":
                                     f.write(json.dumps(config, indent=4, ensure_ascii=False))
                                     f.close()
                                 
-                        elif event_line_txt.startswith(":tochka1:Количество кругов:"): krugs = int( event_line_txt.split(" ")[-1])
+                        elif event_line_txt.startswith(":tochka1:Количество кругов:"): 
+                            krugs = int( event_line_txt.split(" ")[-1])
+                            if krugs > 8: krugs = 8
                             
                         elif event_line_txt.startswith(":tochka1:Вознаграждение:"): prize = int(event_line_txt.split(" ")[1])
                     
