@@ -30,7 +30,7 @@
         },
         {
             "name": "genshin impact",
-            "points": 0,
+            "points": 2,
             "min_players_day": 0,
             "min_players_night": 0,
             "type": "event"
@@ -65,7 +65,7 @@
         },
         {
             "name": "minecraft survival",
-            "points": 0,
+            "points": 3,
             "min_players_day": 0,
             "min_players_night": 0,
             "type": "event"

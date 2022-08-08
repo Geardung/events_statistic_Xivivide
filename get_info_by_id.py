@@ -25,11 +25,11 @@ def main():
     otchet_to =  input("До (пример 22.07.22) не включительно: ") 
     
     texts = {
-        "summary": f'Общая информация за период с <t:{datetime.datetime.strptime(otchet_from, "%d.%m.%y").timestamp()}:D>(включительно) до <t:{datetime.datetime.strptime(otchet_to, "%d.%m.%y").timestamp()}:D>(не включительно):\n\n',
-        "events_list": 'Список **ивентов** за данный период:\n\n'
+        "summary": f'Отчёт по ивентёру <@{id}>\nОбщая информация за период **с** <t:{int(datetime.datetime.strptime(otchet_from, "%d.%m.%y").timestamp())}:D>(включительно) **до** <t:{int(datetime.datetime.strptime(otchet_to, "%d.%m.%y").timestamp())}:D>(не включительно):\n\n',
+        "events_list": 'Список **ивентов** за данный период:\n'
     }
     
-    full_information_events = {
+    full = {
         "count": 0,
         "duration": 0,
         "summary_krugs": 0,
@@ -51,6 +51,20 @@ def main():
         
         texts["events_list"] += f'```\n{index+1}) {event.eventEx_id.name} ({event.eventEx_id.points} баллов)\nКругов: {event.krugs}. Длительность: {event.duration}. Выдано: {event.all_prize}\n```\n'
         
+        full["count"] += 1
+        full["duration"] += event.duration
+        full["summary_krugs"] += event.krugs
+        full["summary_prizes"] += event.all_prize
+        full["summary_points"] += event.krugs * event.eventEx_id.points
+        
+    texts["summary"] += f'Всего провел(а) ивентов за период: {full["count"]}\nОбщая длительность: {full["duration"]}\nОбщее кол-во кругов: {full["summary_krugs"]}\nОбщее количество выданных наград: {full["summary_prizes"]}\nОбщее количество баллов за данный период: {full["summary_points"]}\n\n'
+    
+    texts["summary"] += texts["events_list"]
+    
+    
+    with open(f"./out/{id}.txt", "w", encoding="utf-8") as f: 
+        f.write(texts["summary"])
+        f.close()
     
 if __name__ == "__main__":
     main()
