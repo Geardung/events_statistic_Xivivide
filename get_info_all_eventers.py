@@ -62,7 +62,7 @@ def main():
         
         if a: eventers_info_text += f' \n\nИвентёр {eventers_info[-1]["eventer_tag"]}\nВсего ивентов за период: {eventers_info[-1]["count_events"]}\nСуммарная длительность всех ивентов: {eventers_info[-1]["summary_duration"]} минут\nВсего кругов за все ивенты: {eventers_info[-1]["summary_krugs"]}\nВсего выдано серверной валюты: {eventers_info[-1]["summary_prizes"]}\nВсего получено баллов: {eventers_info[-1]["summary_points"]}'
     
-    text += f'Общая информация за период с <t:{datetime.datetime.strptime(otchet_from, "%d.%m.%y").timestamp()}:D>(включительно) до <t:{datetime.datetime.strptime(otchet_to, "%d.%m.%y").timestamp()}:D>(не включительно):\n\nВсего проведено ивентов: {full_information_events["count"]}\nВсего затрачено на проведение ивентов: {full_information_events["duration"]} минут\nВсего кругов было проведено: {full_information_events["summary_krugs"]}\nВсего выдано серверной валюты: {full_information_events["summary_prizes"]}\nВсего получено баллов: {full_information_events["summary_points"]}\n\n\n'
+    text += f'Общая информация за период с <t:{int(datetime.datetime.strptime(otchet_from, "%d.%m.%y").timestamp())}:D>(включительно) до <t:{int(datetime.datetime.strptime(otchet_to, "%d.%m.%y").timestamp())}:D>(не включительно):\n\nВсего проведено ивентов: {full_information_events["count"]}\nВсего затрачено на проведение ивентов: {full_information_events["duration"]} минут\nВсего кругов было проведено: {full_information_events["summary_krugs"]}\nВсего выдано серверной валюты: {full_information_events["summary_prizes"]}\nВсего получено баллов: {full_information_events["summary_points"]}\n\n\n'
     
     text += eventers_info_text
     
