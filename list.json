@@ -181,6 +181,48 @@
             "min_players_day": 0,
             "min_players_night": 0,
             "type": "close"
+        },
+        {
+            "name": "гномы вредители",
+            "points": 3,
+            "min_players_day": 4,
+            "min_players_night": 4,
+            "type": "event"
+        },
+        {
+            "name": "ток",
+            "points": 5,
+            "min_players_day": 2,
+            "min_players_night": 2,
+            "type": "event"
+        },
+        {
+            "name": "суши",
+            "points": 1,
+            "min_players_day": 1,
+            "min_players_night": 1,
+            "type": "event"
+        },
+        {
+            "name": "намёк понял",
+            "points": 1,
+            "min_players_day": 1,
+            "min_players_night": 1,
+            "type": "event"
+        },
+        {
+            "name": "без остановки",
+            "points": 1,
+            "min_players_day": 1,
+            "min_players_night": 1,
+            "type": "event"
+        },
+        {
+            "name": "among us",
+            "points": 1,
+            "min_players_day": 8,
+            "min_players_night": 6,
+            "type": "event"
         }
     ],
     "eventers": [
@@ -355,6 +397,50 @@
         {
             "discord_id": 503605988591534123,
             "discord_tag": "@лева морфлинг"
+        },
+        {
+            "discord_id": 837791999797100574,
+            "discord_tag": "@Ишак чпокнул дракона"
+        },
+        {
+            "discord_id": 683386296848482417,
+            "discord_tag": "@willi"
+        },
+        {
+            "discord_id": 959414847982948373,
+            "discord_tag": "@Tenside"
+        },
+        {
+            "discord_id": 677194478318256131,
+            "discord_tag": "@! Бабка в автобусе сдохла."
+        },
+        {
+            "discord_id": 847161008815734816,
+            "discord_tag": "@! dosada#.#"
+        },
+        {
+            "discord_id": 1001457524702187521,
+            "discord_tag": "@no heart only pain ♡"
+        },
+        {
+            "discord_id": 363965915399716866,
+            "discord_tag": "@! drill NetPrav (Отчим)"
+        },
+        {
+            "discord_id": 591276403975127060,
+            "discord_tag": "@! I'm chok"
+        },
+        {
+            "discord_id": 695514390056796221,
+            "discord_tag": "@kartoshka fri"
+        },
+        {
+            "discord_id": 1004091678816219167,
+            "discord_tag": "@04 ЧЕЛИК ШРЭК"
+        },
+        {
+            "discord_id": 795591518165008395,
+            "discord_tag": "@! парадокс"
         }
     ]
 }

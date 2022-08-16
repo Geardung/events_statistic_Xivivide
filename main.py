@@ -35,6 +35,8 @@ if  __name__ == "__main__":
                 to_parse_txt = to_parse_txt.read().replace("Akane\nБОТ", "").split("Изображение")
                 for event_txt in to_parse_txt:
                     print("_________________________")
+                    
+                    
                     for event_line_txt in event_txt.splitlines()[1:]:
                         print(event_line_txt)
                         
@@ -142,10 +144,11 @@ if  __name__ == "__main__":
                             
                         elif event_line_txt.startswith(":tochka1:Вознаграждение:"): prize = int(event_line_txt.split(" ")[1])
                     
-                    
+                    mnozhitel = 1
+                    if start.hour >= 0: mnozhitel += 1
                     
                     if not Events.select().where((Events.eventer_id == eventer) & (Events.end_time == end_ts)).first():
                         Events.create(eventer_id = eventer, eventEx_id = event_ex, krugs=krugs, all_prize=prize, peoples = peoples,
-                                      duration = duration, start_time = start_ts, end_time = end_ts, points_summary = event_ex.points*krugs).save()
+                                      duration = duration, start_time = start_ts, end_time = end_ts, points_summary = event_ex.points*krugs*mnozhitel).save()
 
     else: print("IDI Nahuy, vnutri papki \"in\" ничего нет")

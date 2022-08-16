@@ -49,13 +49,13 @@ def main():
         event:Events
         if event.eventEx_id.type != "event": continue
         
-        texts["events_list"] += f'```\n{index+1}) {event.eventEx_id.name} ({event.eventEx_id.points} баллов)\nКругов: {event.krugs}. Длительность: {event.duration}. Выдано: {event.all_prize}\n```\n'
+        texts["events_list"] += f'```\n{index+1}) {event.eventEx_id.name} ({event.eventEx_id.points} баллов)\nКругов: {event.krugs}. Длительность: {event.duration}. Выдано: {event.all_prize}\nЗапущен в: {datetime.datetime.fromtimestamp(event.start_time).strftime("%d.%m.%y %H:%M")}\n```\n'
         
         full["count"] += 1
         full["duration"] += event.duration
         full["summary_krugs"] += event.krugs
         full["summary_prizes"] += event.all_prize
-        full["summary_points"] += event.krugs * event.eventEx_id.points
+        full["summary_points"] += event.points_summary
         
     texts["summary"] += f'Всего провел(а) ивентов за период: {full["count"]}\nОбщая длительность: {full["duration"]}\nОбщее кол-во кругов: {full["summary_krugs"]}\nОбщее количество выданных наград: {full["summary_prizes"]}\nОбщее количество баллов за данный период: {full["summary_points"]}\n\n'
     
