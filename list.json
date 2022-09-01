@@ -223,6 +223,20 @@
             "min_players_day": 8,
             "min_players_night": 6,
             "type": "event"
+        },
+        {
+            "name": "brawlhalla",
+            "points": 1,
+            "min_players_day": 1,
+            "min_players_night": 1,
+            "type": "event"
+        },
+        {
+            "name": "valorant 5x5",
+            "points": 0,
+            "min_players_day": 4,
+            "min_players_night": 4,
+            "type": "close"
         }
     ],
     "eventers": [
@@ -441,6 +455,42 @@
         {
             "discord_id": 795591518165008395,
             "discord_tag": "@! парадокс"
+        },
+        {
+            "discord_id": 939477087583096862,
+            "discord_tag": "@moondustcry"
+        },
+        {
+            "discord_id": 600026140765323276,
+            "discord_tag": "@тренер по мидовой миреске"
+        },
+        {
+            "discord_id": 572741657540165632,
+            "discord_tag": "@Котик"
+        },
+        {
+            "discord_id": 481554221486047268,
+            "discord_tag": "@tired"
+        },
+        {
+            "discord_id": 338297022408949771,
+            "discord_tag": "@Марси"
+        },
+        {
+            "discord_id": 694171534411038782,
+            "discord_tag": "<@694171534411038782>"
+        },
+        {
+            "discord_id": 872075010880204850,
+            "discord_tag": "@09 02 01 Ева"
+        },
+        {
+            "discord_id": 625214374969344000,
+            "discord_tag": "@сонечка"
+        },
+        {
+            "discord_id": 473425973522464768,
+            "discord_tag": "@F0zzan"
         }
     ]
 }
