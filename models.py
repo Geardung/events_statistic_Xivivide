@@ -1,14 +1,14 @@
 
 import json
 from peewee import *
-from playhouse.postgres_ext import PostgresqlExtDatabase
+from playhouse.postgres_ext import PostgresqlExtDatabase, PostgresqlDatabase
 
 with open("./config.json", "r", encoding="utf-8") as config: config = json.loads(config.read())
 
-db = PostgresqlExtDatabase(
-    database=config["postgreSQL"]["user"],
-    user=config["postgreSQL"]["password"],
-    password=config["postgreSQL"]["db"],
+db = PostgresqlDatabase(
+    database=config["postgreSQL"]["db"],
+    user=config["postgreSQL"]["user"],
+    password=config["postgreSQL"]["password"],
     host=config["postgreSQL"]["host"],
     port=config["postgreSQL"]["port"])
 

@@ -32,123 +32,138 @@ if  __name__ == "__main__":
                 continue
             
             with open(filepath, "r", encoding="utf-8") as to_parse_txt:
-                to_parse_txt = to_parse_txt.read().replace("Akane\nБОТ", "").split("Изображение")
-                for event_txt in to_parse_txt:
-                    print("_________________________")
+                to_parse_txt = to_parse_txt.read()
+                
+                print("_________________________")
+                
+                data:dict = json.loads(to_parse_txt)
+        
+                for message in data["messages"]:
+                    
+                    eventer = None 
+                    event_ex = None
+                    krugs  = None
+                    prize  = None
+                    peoples  = None
+                    duration  = None
+                    start_ts  = None
+                    end_ts  = None
+
+                    if not message["author"]["id"] == "940974851101962270": continue
+
+                    event_embed = message["embeds"][0]
+
+                    #eventer = self.db_session.query(UserModel).filter_by(discord_id = int(event_embed["thumbnail"]["url"].split("/")[-2])).first()
+                    try:
+                        d_id = int(event_embed["thumbnail"]["url"].split("/")[-2])
+                    except:
+                        print(event_embed)
+                        continue
+                    
+                    eventer = Eventers.select().where(Eventers.discord_id == d_id).first()
+
+                    if not eventer: 
+                        eventer = Eventers.create(discord_id=d_id, discord_tag="test")
+                        eventer.save()
+
+                    event_info = event_embed["description"]
                     
                     
-                    for event_line_txt in event_txt.splitlines()[1:]:
-                        print(event_line_txt)
-                        
-                        if event_line_txt.startswith(" — "): pass
-                        
-                        elif event_line_txt.startswith("Провeдённый"): 
-                            if "ивент!" in event_line_txt.split(" "): event_type = "event"
-                            elif "клоз!" in event_line_txt.split(" "): event_type = "close"
-                            else: event_type = "undefined"
-                            cc = lolkek[event_type]
-                            
-                        elif event_line_txt.startswith(":tochka1:Ведущий:"): 
-                            
-                            eventer_tag = event_line_txt.split(":tochka1:Ведущий: ")[1]
-                            eventer = Eventers.select().where(Eventers.discord_tag == eventer_tag).first()
-                            
-                            if not eventer:
-                                print(f"Eventer не найден по дискорд тэгу!\n{eventer_tag}")
-                                inp_discord_id = int(input("Введите его айди: "))
-                                
-                                eventer:Eventers = Eventers.select().where((Eventers.discord_id == inp_discord_id)).first()
-                                
-                                if not eventer:
-                                    eventer = Eventers.create(discord_tag = eventer_tag, discord_id = inp_discord_id)
-                                    eventer.save()
-                                    
-                                    with open("./list.json", "r", encoding="utf-8") as f: 
-                                        config = json.loads(f.read())
-                                        f.close()
-                                
-                                    config["eventers"].append(
-                                        {
-                                            "discord_id": inp_discord_id,
-                                            "discord_tag": eventer_tag
-                                        }
-                                    )
-                                    
-                                    with open("./list.json", "w", encoding="utf-8") as f: 
-                                        f.write(json.dumps(config, indent=4, ensure_ascii=False))
-                                        f.close()
-                                
-                                    
-                                else:
-                                    eventer.discord_tag = eventer_tag
-                                    eventer.save()
-                            
-                            else: print("Ивентёр найден")
-                        
-                        elif event_line_txt.startswith(":tochka1:Время:"): 
-                            
-                            a = event_line_txt.split(" ")
-                            format = '%d_%m_%Y %I:%M %p'
-                            
-                            start_ts = datetime.strptime(file.split(".")[0] + f' {a[2]} {a[3]}', format).timestamp()
-                            end_ts   = datetime.strptime(file.split(".")[0] + f' {a[5]} {a[6]}', format).timestamp()
-                            start = datetime.strptime(file.split(".")[0] + f' {a[2]} {a[3]}', format)
-                            end   = datetime.strptime(file.split(".")[0] + f' {a[5]} {a[6]}', format)
+                    
+
+                    for info in event_info.split("\n"):
+
+                        info:str
+
+                        if   info.find(":tochka1:Ведущий: `") > -1: pass # Не требуется
+                        elif info.find(":tochka1:Время: `") > -1: 
+                            time = info[info.find("`")+1:-1]
+                            #TIMESTAMP PARSING
+                            format = '%Y-%m-%d %I:%M %p'
+                            a = time.split(" ")
+                            start = datetime.strptime(message["timestamp"].split("T")[0] + f' {a[1]} {a[2]}', format)
+                            end   = datetime.strptime(message["timestamp"].split("T")[0] + f' {a[4]} {a[5]}', format)
+                            start_ts = start.timestamp()
+                            end_ts   = end.timestamp()
                             duration = (end - start).seconds/60
-                            
-                        elif event_line_txt.startswith(":tochka1:Участвовало"):
-                            
-                            if "-" in event_line_txt: peoples = int(event_line_txt.split(" ")[-1].split("-")[0])
-                            elif len(event_line_txt.split(" ")[-1]) > 2: 
-                                input("Press to continue...")
-                                continue              
-                            else: peoples = int( event_line_txt.split(" ")[-1])
-                                                      
-                        elif event_line_txt.startswith(f":tochka1:{cc}:"): 
-                            
-                            event_name = event_line_txt.split(f":tochka1:{cc}: ")[-1][:-1]
-                            
-                            event_ex = EventEx.select().where((EventEx.name == event_name)).first()
-                            
-                            if not event_ex:
+
+
+                        elif info.find(":tochka1:Ивент: `") > -1 or info.find(":tochka1:Клоз: `") > -1 :
+                            #EVENT NAME PARSING
+                            #event_example = self.db_session.query(EventExampleModel).filter_by(name = info[info.find("`")+1:-1][:-1])[-1]
+                            event_ex = EventEx.select().where(EventEx.name == info[info.find("`")+1:-1][:-1]).first()
+                            if not event_ex: 
+                                print("EventEx not finded -> ", info[info.find("`")+1:-1][:-1])
                                 
-                                print("Ивент не найден!")
-                                points = int(input("Введите кол-во баллов за ивент: "))
-                                day = int(input("Введите кол-во человек днем: "))
-                                night = int(input("Введите кол-во человек ночью: "))
-                                
-                                event_ex = EventEx.create(name = event_name, points = points, min_players_day = day, min_players_night = night, type = event_type)
-                                with open("./list.json", "r", encoding="utf-8") as f: 
-                                
-                                    config = json.loads(f.read())
-                                    f.close()
-                                    
-                                
-                                config["events"].append(
-                                    {
-                                        "name": event_name,
-                                        "points": points,
-                                        "min_players_day": day,
-                                        "min_players_night": night,
-                                        "type": event_type
-                                    }
-                                )
-                                
-                                with open("./list.json", "w", encoding="utf-8") as f: 
-                                    f.write(json.dumps(config, indent=4, ensure_ascii=False))
-                                    f.close()
-                                
-                        elif event_line_txt.startswith(":tochka1:Количество кругов:"): 
-                            krugs = int( event_line_txt.split(" ")[-1])
-                            if krugs > 8: krugs = 8
+                                event_ex = EventEx.create(id=EventEx.select().count()+1,name=info[info.find("`")+1:-1][:-1], points=int(input("Баллов: ")), type=input("Тип close\\event: "), min_players_day=int(input("Минимально днём: ")), min_players_night=int(input("Минимально ночью: "))).save()
                             
-                        elif event_line_txt.startswith(":tochka1:Вознаграждение:"): prize = int(event_line_txt.split(" ")[1])
+                            #all_events = self.db_session.query(EventModel).filter_by(event=event_example.id).all()
+                            #if len(all_events) > count_e:
+                            #    average_krugs = ( sum([x.krugs for x in all_events]) ) / all_events.count()
+                            #    average_all_prize = ( sum([x.all_prize for x in all_events]) ) / all_events.count()
+
+                        elif info.find(":tochka1:Участвовало людей: `") > -1:
+                            #EVENT PEOPLE PARSING
+                            try: peoples = int(info[info.find("`")+1:-1])
+                            except:
+                                #await otchetEmbedsend(message["id"], "Ивентёр не добавлен в базу данных User", events_channel)
+                                try: peoples = int(info[info.find("`")+1:-1][0])
+                                except:
+                                    #await otchetEmbedsend(message["id"], "Ивентёр не добавлен в базу данных User", events_channel)
+                                    print("Люди вписаны неправильно блять -> ", info[info.find("`")+1:-1])
+                                    continue
+                            
+                            if peoples > 100: peoples = 1
+
+                            
+                        elif info.find(":tochka1:Количество кругов: `") > -1:
+                            #EVENT KRUGS PARSING
+                            try: krugs = int(info[info.find("`")+1:-1])
+                            except:
+                                #await otchetEmbedsend(message["id"], "Ивентёр не добавлен в базу данных User", events_channel)
+                                print("Количество кругов вписаны неправильно блять")
+                                continue
+                            
+                        elif info.find(":tochka1:Вознаграждение:  `") > -1:
+                            #EVENT PRIZE PARSING
+                            try: prize = int(info[info.find("`")+1:-9])
+                            except:
+                                #await otchetEmbedsend(message["id"], "Ивентёр не добавлен в базу данных User", events_channel)
+                                print("Вознаграждение вписаны неправильно блять ->", info[info.find("`")+1:-9])
+                                
+                                
+                                continue
+                            
+                            if prize > 1111110: prize = 1
+                    
+                    
+                    #if not ( eventer and event_ex and krugs and prize and peoples and duration and start_ts and end_ts ): 
+                    if None in [eventer, event_ex, krugs, prize, peoples, duration, start_ts, end_ts]:
+                        
+                        print("\n", eventer ,  event_ex ,  krugs ,  prize ,  peoples ,  duration ,  start_ts ,  end_ts, "\n")
+                        #
+                        #input()
+                        
+                        continue
+                    
+                    #if 0 in [eventer, event_ex, krugs, prize, peoples, duration, start_ts, end_ts]:
+                    #    
+                    #    print("\n", eventer ,  event_ex ,  krugs ,  prize ,  peoples ,  duration ,  start_ts ,  end_ts, "\n")
+                    #    
+                    #    print(event_info)
+                    #    input()
+                    #    
+                    #    continue
+                    
                     
                     mnozhitel = 1
-                    if start.hour >= 0: mnozhitel += 1
                     
                     if not Events.select().where((Events.eventer_id == eventer) & (Events.end_time == end_ts)).first():
+                        print(eventer ,  event_ex ,  krugs ,  prize ,  peoples ,  duration ,  start_ts ,  end_ts)
                         Events.create(eventer_id = eventer, eventEx_id = event_ex, krugs=krugs, all_prize=prize, peoples = peoples,
-                                      duration = duration, start_time = start_ts, end_time = end_ts, points_summary = event_ex.points*krugs*mnozhitel).save()
+                                  duration = duration, start_time = start_ts, end_time = end_ts, points_summary = event_ex.points*krugs*mnozhitel).save()
 
+                    
+
+                    
     else: print("IDI Nahuy, vnutri papki \"in\" ничего нет")
