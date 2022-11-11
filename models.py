@@ -41,6 +41,7 @@ class Eventers(BaseModel):
     
     points = IntegerField(default = 0)
 
+
     
 class Events(BaseModel):
     
@@ -61,3 +62,9 @@ class Events(BaseModel):
     end_time = IntegerField()
     
     points_summary = IntegerField(null=True)
+    
+class Passwords(BaseModel):
+    
+    password = TextField()
+    
+    accesstype = TextField()

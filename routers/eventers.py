@@ -1,9 +1,9 @@
 
 from fastapi import APIRouter, Depends, status, Response
-import repository.statistic
+import repository.eventers
 from fastapi.responses import PlainTextResponse
 
-router = APIRouter(prefix='/statistic', tags=['Статистика'])
+router = APIRouter(prefix='/eventers', tags=['Ивентёры'])
 
 
 
@@ -20,6 +20,8 @@ async def get_statistic_by_id(eventer_id: int, start: str, end: str, password: s
         start (строка): Дата в формате 30.12.22
         
         end (строка): Дата в формате 30.12.22
+        
+        password (str): Пароль короче твой, который ты получил у Тэдэши#2468
         
     """
     

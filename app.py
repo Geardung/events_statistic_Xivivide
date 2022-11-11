@@ -6,7 +6,8 @@ from fastapi.middleware import Middleware
 
 from loguru import logger
 
-from routers.statistic import router as statistic_router
+from routers.closers import router as closer_router
+from routers.eventers import router as event_router
 
 app = FastAPI(
     title="Eventers XIVIVIDE",
@@ -32,7 +33,8 @@ def startup_event():
     logger.info("App started")
 
 
-app.include_router(statistic_router)
+app.include_router(closer_router)
+app.include_router(event_router)
 
 
 # app = VersionedFastAPI(

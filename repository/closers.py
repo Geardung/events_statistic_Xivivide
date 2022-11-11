@@ -13,12 +13,14 @@ def get_statistic_by_id(eventer_id: int, start: str, end: str, password: str):
         eventer_id (int): ID ивентёра, на которого нужно сделать статистику
         start (str): Дата в формате 30.12.22
         end (str): Дата в формате 30.12.22
+        password (str): Пароль короче твой, который ты получил у Тэдэши#2468
 
     Returns:
         _type_: Сообщение в готовом виде для Discord`a
     """    
     
-    if not password in [""]: return "Пароль неверный"
+    
+    if not password in Passwords.select().where((Passwords.accesstype=="closers") & (Passwords.password == password)): return "Пароль неверный"
     
     if not os.path.exists("./out"): os.mkdir("./out")
     if not Eventers.select(): return "В базе данных нет ивентёров"
