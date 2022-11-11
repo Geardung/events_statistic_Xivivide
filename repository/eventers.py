@@ -19,7 +19,7 @@ def get_statistic_by_id(eventer_id: int, start: str, end: str, password: str):
         _type_: Сообщение в готовом виде для Discord`a
     """    
     
-    if not password in Passwords.select().where((Passwords.accesstype=="closers") & (Passwords.password == password)): return "Пароль неверный"
+    if not password in [x.password for x in Passwords.select().where((Passwords.accesstype=="eventers") & (Passwords.password == password))]: return "Пароль неверный"
     
     if not os.path.exists("./out"): os.mkdir("./out")
     if not Eventers.select(): return "В базе данных нет ивентёров"

@@ -26,4 +26,4 @@ async def get_statistic_by_id(eventer_id: int, start: str, end: str, password: s
     """
     
 
-    return repository.statistic.get_statistic_by_id(eventer_id=eventer_id, start=start, end=end, password=password)
+    return repository.eventers.get_statistic_by_id(eventer_id=eventer_id, start=start, end=end, password=password)
