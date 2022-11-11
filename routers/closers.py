@@ -3,7 +3,7 @@ from fastapi import APIRouter, Depends, status, Response
 import repository.closers
 from fastapi.responses import PlainTextResponse
 
-router = APIRouter(prefix='/eventers', tags=['Ивентёры'])
+router = APIRouter(prefix='/closers', tags=['Клозеры'])
 
 
 
