@@ -68,8 +68,7 @@ if  __name__ == "__main__":
 
                     event_info = event_embed["description"]
                     
-                    
-                    
+                    def printMSGurl(): print("https://discord.com/channels/876887982509002855/904020811625672714/" + str(message["id"]))
 
                     for info in event_info.split("\n"):
 
@@ -111,6 +110,7 @@ if  __name__ == "__main__":
                                 except:
                                     #await otchetEmbedsend(message["id"], "Ивентёр не добавлен в базу данных User", events_channel)
                                     print("Люди вписаны неправильно блять -> ", info[info.find("`")+1:-1])
+                                    printMSGurl()
                                     continue
                             
                             if peoples > 100: peoples = 1
@@ -122,6 +122,7 @@ if  __name__ == "__main__":
                             except:
                                 #await otchetEmbedsend(message["id"], "Ивентёр не добавлен в базу данных User", events_channel)
                                 print("Количество кругов вписаны неправильно блять")
+                                printMSGurl()
                                 continue
                             
                         elif info.find(":tochka1:Вознаграждение:  `") > -1:
@@ -130,7 +131,7 @@ if  __name__ == "__main__":
                             except:
                                 #await otchetEmbedsend(message["id"], "Ивентёр не добавлен в базу данных User", events_channel)
                                 print("Вознаграждение вписаны неправильно блять ->", info[info.find("`")+1:-9])
-                                
+                                printMSGurl()
                                 
                                 continue
                             
@@ -149,8 +150,7 @@ if  __name__ == "__main__":
                     #if 0 in [eventer, event_ex, krugs, prize, peoples, duration, start_ts, end_ts]:
                     #    
                     #    print("\n", eventer ,  event_ex ,  krugs ,  prize ,  peoples ,  duration ,  start_ts ,  end_ts, "\n")
-                    #    
-                    #    print(event_info)
+                    #    printMSGurl()
                     #    input()
                     #    
                     #    continue

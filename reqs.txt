@@ -1,2 +1,5 @@
 peewee
 psycopg2-binary
+fastapi
+uvicorn
+loguru
