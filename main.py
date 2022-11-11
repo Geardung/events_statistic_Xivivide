@@ -1,5 +1,5 @@
 from datetime import datetime
-import os, json
+import os, json, sys
 from models import *
 
 lolkek = {
@@ -94,7 +94,8 @@ if  __name__ == "__main__":
                             if not event_ex: 
                                 print("EventEx not finded -> ", info[info.find("`")+1:-1][:-1])
                                 
-                                event_ex = EventEx.create(id=EventEx.select().count()+1,name=info[info.find("`")+1:-1][:-1], points=int(input("Баллов: ")), type=input("Тип close\\event: "), min_players_day=int(input("Минимально днём: ")), min_players_night=int(input("Минимально ночью: "))).save()
+                                if sys.argv[1] == "parser": continue
+                                else: event_ex = EventEx.create(id=EventEx.select().count()+1,name=info[info.find("`")+1:-1][:-1], points=int(input("Баллов: ")), type=input("Тип close\\event: "), min_players_day=int(input("Минимально днём: ")), min_players_night=int(input("Минимально ночью: "))).save()
                             
                             #all_events = self.db_session.query(EventModel).filter_by(event=event_example.id).all()
                             #if len(all_events) > count_e:
