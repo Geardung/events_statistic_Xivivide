@@ -1,10 +1,10 @@
 from models import *
 
-for table in [EventEx, Eventers, Events]:
-    table.drop_table(cascade=True)
+#for table in [EventEx, Eventers, Events, Passwords]:
+#    table.drop_table(cascade=True)
     
 
-for table in [EventEx, Eventers, Events]:
+for table in [EventEx, Eventers, Events, Passwords]:
     
     table.create_table()
     

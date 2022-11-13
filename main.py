@@ -1,6 +1,7 @@
 from datetime import datetime
 import os, json, sys
 from models import *
+from threading import Thread
 
 lolkek = {
     "event": "Ивент",
@@ -11,10 +12,7 @@ lolkek = {
 def add_event():
     pass
 
-
-if  __name__ == "__main__":
-
-
+def start_parsing(is_parser=False):
     if (not os.path.exists("./in")): os.mkdir("./in")
     
     if (not len(os.listdir("./in")) == 0):
@@ -94,7 +92,7 @@ if  __name__ == "__main__":
                             if not event_ex: 
                                 print("EventEx not finded -> ", info[info.find("`")+1:-1][:-1])
                                 
-                                if sys.argv[1] == "parser": continue
+                                if is_parser: continue
                                 else: event_ex = EventEx.create(id=EventEx.select().count()+1,name=info[info.find("`")+1:-1][:-1], points=int(input("Баллов: ")), type=input("Тип close\\event: "), min_players_day=int(input("Минимально днём: ")), min_players_night=int(input("Минимально ночью: "))).save()
                             
                             #all_events = self.db_session.query(EventModel).filter_by(event=event_example.id).all()
@@ -168,3 +166,8 @@ if  __name__ == "__main__":
 
                     
     else: print("IDI Nahuy, vnutri papki \"in\" ничего нет")
+    
+if __name__ == "__main__":
+    
+    if len(sys.argv) < 2: start_parsing()
+    elif sys.argv[1] == "parser": Thread(target=start_parsing, args=[True]).start()

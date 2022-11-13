@@ -1,17 +1,24 @@
 
-import json
 from peewee import *
 from playhouse.postgres_ext import PostgresqlExtDatabase, PostgresqlDatabase
 
-with open("./config.json", "r", encoding="utf-8") as config: config = json.loads(config.read())
+try:
+    
+    db = PostgresqlDatabase(
+        database="eventsXIVIVIDE",                                          
+        user="postgres",
+        password="228485",
+        host="localhost",
+        port=5432)
 
-db = PostgresqlDatabase(
-    database=config["postgreSQL"]["db"],
-    user=config["postgreSQL"]["user"],
-    password=config["postgreSQL"]["password"],
-    host=config["postgreSQL"]["host"],
-    port=config["postgreSQL"]["port"])
-
+except:
+    
+    db = PostgresqlDatabase(
+        database="eventsXIVIVIDE",                                          
+        user="dasdasdasd",
+        password="postgres",
+        host="176.119.158.76",
+        port=5432)
 
 class BaseModel(Model):
     class Meta:
