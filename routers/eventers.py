@@ -63,4 +63,4 @@ async def get_aver_ex_events(password: str):
     """
     
 
-    return repository.eventers.get_aver_ex_events(password=password)
+    return str(repository.eventers.get_aver_ex_events(password=password))

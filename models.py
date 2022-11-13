@@ -2,23 +2,12 @@
 from peewee import *
 from playhouse.postgres_ext import PostgresqlExtDatabase, PostgresqlDatabase
 
-try:
-    
-    db = PostgresqlDatabase(
-        database="eventsXIVIVIDE",                                          
-        user="postgres",
-        password="228485",
-        host="localhost",
-        port=5432)
-
-except:
-    
-    db = PostgresqlDatabase(
-        database="eventsXIVIVIDE",                                          
-        user="dasdasdasd",
-        password="postgres",
-        host="176.119.158.76",
-        port=5432)
+db = PostgresqlExtDatabase(
+    database="eventsXIVIVIDE",                                          
+    user="postgres",
+    password="228485",
+    host="localhost",
+    port=5432)
 
 class BaseModel(Model):
     class Meta:

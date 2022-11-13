@@ -8,14 +8,14 @@ router = APIRouter(prefix='/closers', tags=['Клозеры'])
 
 
 @router.get('/', status_code=status.HTTP_200_OK, response_class=PlainTextResponse)
-async def get_statistic_by_id(eventer_id: int, start: str, end: str, password: str):
+async def get_statistic_by_id(closer_id: int, start: str, end: str, password: str):
     """
     
     Подготавливает статистику на определённого ивентёра
     
     Аргументы запроса:
     
-        eventer_id (число): ID клозера, на которого нужно сделать статистику
+        closer_id (число): ID клозера, на которого нужно сделать статистику
         
         start (строка): Дата в формате 30.12.22
         
@@ -26,4 +26,4 @@ async def get_statistic_by_id(eventer_id: int, start: str, end: str, password: s
     """
     
 
-    return repository.eventers.get_statistic_by_id(eventer_id=eventer_id, start=start, end=end, password=password)
+    return repository.closers.get_statistic_by_id(closer_id=closer_id, start=start, end=end, password=password)

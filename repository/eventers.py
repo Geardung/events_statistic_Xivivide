@@ -97,7 +97,7 @@ def get_statistic_all(start: str, end: str, password: str):
     otchet_from = start
     otchet_to =  end
     
-    av = get_aver_ex_events()
+    av = get_aver_ex_events(password)
     
     full_information_events = {
         "count": 0,

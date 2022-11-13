@@ -1,16 +1,15 @@
 import datetime
-from html import entities
 from models import *
 import os
 
 
 
 
-def get_statistic_by_id(eventer_id: int, start: str, end: str, password: str):
+def get_statistic_by_id(closer_id: int, start: str, end: str, password: str):
     """Подготавливает статистику на определённого ивентёра
 
     Args:
-        eventer_id (int): ID ивентёра, на которого нужно сделать статистику
+        closer_id (int): ID ивентёра, на которого нужно сделать статистику
         start (str): Дата в формате 30.12.22
         end (str): Дата в формате 30.12.22
         password (str): Пароль короче твой, который ты получил у Тэдэши#2468
@@ -20,13 +19,13 @@ def get_statistic_by_id(eventer_id: int, start: str, end: str, password: str):
     """    
     
     
-    if not password in [x.password for x in Passwords.select().where((Passwords.accesstype=="closers") & (Passwords.password == password))]: return "Пароль неверный"
+    if not password.lower() in [ x.password for x in Passwords.select().where((Passwords.accesstype == "closers") & (Passwords.password == password.lower()))]: return "Пароль неверный"
     
     if not os.path.exists("./out"): os.mkdir("./out")
     if not Eventers.select(): return "В базе данных нет ивентёров"
     
     while True:
-        id = eventer_id
+        id = closer_id
         eventer = Eventers.select().where((Eventers.discord_id == id)).first()
         if eventer: break
         else: return "Нет ивентёра"
